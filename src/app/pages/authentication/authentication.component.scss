@@ -1,0 +1,26 @@
+.pattern_white {
+   display: none;
+}
+
+.pattern_yellow {
+    display: none;
+}
+
+@media only screen and (max-width: 480px) {
+    .pattern_white {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 7rem;
+    }
+    
+    .pattern_yellow {
+        display: block;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        height: 7rem;
+        transform: rotate(180deg);
+    }
+}

@@ -1,0 +1,70 @@
+<section id="authentication" class="h-full flex flex-col bg-sky-600 px-10 justify-center">
+    <img src="../../../assets/img/pattern_white.png" alt="" class="pattern_white">
+
+    <img src="../../../assets/img/pattern_blue.png" alt="" class="pattern_yellow">
+
+    <!-- Form -->
+    <div class="flex flex-col w-full mb-10" [formGroup]="Form">
+        <!-- Logo -->
+        <div class="flex mx-auto mb-2">
+            <img src="../../../assets/img/logo.png" alt="" class="h-28">
+        </div>
+
+        <!-- Email -->
+        <div class="flex flex-col w-full mb-4">
+            <label for="email" class="text-base text-white mb-1">
+                Email
+            </label>
+            <input pInputText type="text" class="p-inputtext-sm w-full" placeholder="Input Email Disini"
+                formControlName="email" />
+        </div>
+
+        <!-- Password -->
+        <div class="flex flex-col w-full mb-5">
+            <label for="email" class="text-base text-white mb-1">
+                Password
+            </label>
+            <p-password [toggleMask]="true" [feedback]="false" styleClass="w-full p-inputtext-sm"
+                formControlName="password" placeholder="Input Password Disini">
+            </p-password>
+        </div>
+
+        <!-- Button -->
+        <div class="flex flex-col w-full mb-5">
+            <p-button label="Sign In" (onClick)="onSignIn(Form.value)"
+                styleClass="p-button-raised p-button-success p-button-sm bg-white w-full">
+            </p-button>
+        </div>
+
+        <!-- Button -->
+        <div class="flex flex-col w-full mb-0">
+            <p-button label="Hitung Stunting" (onClick)="onNavigateToHitungStunting()"
+                styleClass="p-button-raised p-button-secondary p-button-sm bg-white w-full">
+            </p-button>
+        </div>
+    </div>
+
+    <div class="flex flex-col">
+        <p class="text-yellow-300 text-xs">
+            Tim Pengembang :
+        </p>
+        <p class="text-gray-50 text-xs">
+            Vilda Ana Veria S, M.Gz
+        </p>
+        <p class="text-gray-50 text-xs">
+            Agung Wardoyo, M.Kom
+        </p>
+        <p class="text-gray-50 text-xs">
+            Eti Rimawati, M.Kes
+        </p>
+        <p class="text-gray-50 text-xs">
+            Ririn Nurmandhani, M.Kes
+        </p>
+        <p class="text-gray-50 text-xs">
+            Muhammad Iqbal, SKM., MKM
+        </p>
+        <p class="text-gray-50 text-xs">
+            Firmansyah Kholiq P.P.H, S.K.M., M.K.M
+        </p>
+    </div>
+</section>

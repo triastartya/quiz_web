@@ -1,0 +1,81 @@
+<app-dashboard>
+    <p-tabView [(activeIndex)]="TabIndex" (onChange)="handleChangeTab($event)" data-aos="fade-right"
+        data-aos-duration="1000">
+        <p-tabPanel header="Input Data Ibu">
+            <div [formGroup]="Form">
+                <!-- NIK -->
+                <div class="flex flex-col gap-1 mb-4">
+                    <label for="nik" class="text-sm text-gray-800 font-semibold">
+                        NIK Ibu
+                    </label>
+                    <input pInputText type="text" class="p-inputtext-sm w-full" placeholder="Input NIK Disini"
+                        formControlName="nik_ibu" [mask]="'0000.0000.0000.0000'" />
+                </div>
+
+                <!-- Nama Lengkap Ibu -->
+                <div class="flex flex-col gap-1 mb-4">
+                    <label for="nik" class="text-sm text-gray-800 font-semibold">
+                        Nama Lengkap Ibu
+                    </label>
+                    <input pInputText type="text" class="p-inputtext-sm w-full" placeholder="Input Nama Lengkap Disini"
+                        formControlName="nama_ibu" />
+                </div>
+
+                <!-- No. Handphone -->
+                <div class="flex flex-col gap-1 mb-4">
+                    <label for="nik" class="text-sm text-gray-800 font-semibold">
+                        No. Handphone
+                    </label>
+                    <input pInputText type="text" class="p-inputtext-sm w-full" placeholder="Input No. Handphone Disini"
+                        formControlName="no_hp" />
+                </div>
+
+                <!-- Alamat Domisili -->
+                <div class="flex flex-col gap-1 mb-4">
+                    <label for="nik" class="text-sm text-gray-800 font-semibold">
+                        Alamat Domisili
+                    </label>
+                    <input pInputText type="text" class="p-inputtext-sm w-full"
+                        placeholder="Input Alamat Domisili Disini" formControlName="domisili" />
+                </div>
+
+                <!-- Alamat Domisili -->
+                <div class="flex flex-col gap-1 mb-5">
+                    <label for="nik" class="text-sm text-gray-800 font-semibold">
+                        RT / RW
+                    </label>
+
+                    <div class="flex gap-2">
+                        <input pInputText type="text" class="p-inputtext-sm w-full" placeholder="Input RT Disini"
+                            formControlName="rt" />
+
+                        <input pInputText type="text" class="p-inputtext-sm w-full" placeholder="Input RW Disini"
+                            formControlName="rw" />
+                    </div>
+                </div>
+
+                <!-- Alamat Domisili -->
+                <div *ngIf="FormState == 'add'" class="grid w-full">
+                    <p-button label="Simpan" (onClick)="handleSaveIbu()"
+                        styleClass="p-button-raised p-button-success p-button-sm bg-white w-full">
+                    </p-button>
+                </div>
+            </div>
+        </p-tabPanel>
+        <p-tabPanel header="Daftar Data Ibu">
+            <div *ngFor="let item of IbuDatasource"
+                class="flex flex-col border-b border-x-0 border-t-0 border-solid border-gray-200 mb-2 py-2 cursor-pointer"
+                (click)="getDetail(item)">
+                <p class="text-sky-500 text-base mb-1">
+                    {{ item.nama_ibu | titlecase }}
+                </p>
+                <p class="text-gray-800 font-semibold text-xs mb-1">
+                    <i class="pi pi-phone text-xs"></i>&nbsp; {{ item.no_hp }}
+                </p>
+                <p class="text-gray-600 text-xs">
+                    <i class="pi pi-map-marker text-xs"></i>&nbsp; {{ item.domisili }}
+                </p>
+            </div>
+        </p-tabPanel>
+    </p-tabView>
+</app-dashboard>

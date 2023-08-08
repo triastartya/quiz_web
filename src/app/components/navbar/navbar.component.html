@@ -1,0 +1,7 @@
+<div class="flex items-center h-14 bg-sky-600 px-4 py-2">
+    <i *ngIf="!IsBeranda" class="pi pi-chevron-left text-xs text-white cursor-pointer" (click)="onNavigateBack()"></i>
+
+    <img src="../../../assets/img/logo.png" alt="" class="w-24 h-auto mx-auto">
+
+    <i *ngIf="UserData" class="pi pi-sign-out text-sm text-white cursor-pointer" (click)="onSignOut()"></i>
+</div>

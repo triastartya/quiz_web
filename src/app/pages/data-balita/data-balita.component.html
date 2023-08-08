@@ -1,0 +1,123 @@
+<app-dashboard>
+    <p-tabView [(activeIndex)]="TabIndex" (onChange)="handleChangeTab($event)" data-aos="fade-right"
+        data-aos-duration="1000">
+        <p-tabPanel header="Input Data Balita">
+            <div [formGroup]="Form">
+                <!-- Nama Ibu -->
+                <div class="flex flex-col gap-1 mb-4">
+                    <label for="nik" class="text-sm text-gray-800 font-semibold">
+                        Nama Ibu
+                    </label>
+                    <p-dropdown appendTo="body" formControlName="id_ibu" [options]="IbuDatasource" optionValue="id"
+                        optionLabel="nama_ibu" styleClass="w-full p-inputtext-sm" [autoDisplayFirst]="false"
+                        [filter]="true" placeholder="Pilih Ibu Disini">
+                    </p-dropdown>
+                </div>
+
+                <!-- NIK Balita -->
+                <div class="flex flex-col gap-1 mb-4">
+                    <label for="nik" class="text-sm text-gray-800 font-semibold">
+                        NIK Balita
+                    </label>
+                    <input pInputText type="text" class="p-inputtext-sm w-full" placeholder="Input NIK Balita Disini"
+                        formControlName="nik_bayi" [mask]="'0000.0000.0000.0000'" />
+                </div>
+
+                <!-- Nama Balita -->
+                <div class="flex flex-col gap-1 mb-4">
+                    <label for="nik" class="text-sm text-gray-800 font-semibold">
+                        Nama Balita
+                    </label>
+                    <input pInputText type="text" class="p-inputtext-sm w-full" placeholder="Input Nama Balita Disini"
+                        formControlName="nama_bayi" />
+                </div>
+
+                <!-- Jenis Kelamin -->
+                <div class="flex flex-col gap-1 mb-4">
+                    <label for="nik" class="text-sm text-gray-800 font-semibold">
+                        Jenis Kelamin
+                    </label>
+                    <p-dropdown appendTo="body" formControlName="jenis_kelamin" [options]="JenisKelaminDatasource"
+                        optionValue="value" optionLabel="text" styleClass="w-full p-inputtext-sm"
+                        [autoDisplayFirst]="false" [filter]="true" placeholder="Pilih Jenis Kelamin Balita Disini">
+                    </p-dropdown>
+                </div>
+
+                <!-- Tanggal Lahir -->
+                <div class="flex flex-col gap-1 mb-5">
+                    <label for="nik" class="text-sm text-gray-800 font-semibold">
+                        Tanggal Lahir
+                    </label>
+
+                    <p-calendar formControlName="tanggal_lahir" [touchUI]="true" styleClass="w-full p-inputtext-sm"
+                        [showButtonBar]="true" [dateFormat]="'dd/MM/yy'" placeholder="Input Tanggal Lahir Disini">
+                    </p-calendar>
+                </div>
+
+                <!-- Berat Badan Lahir (kg) -->
+                <div class="flex flex-col gap-1 mb-5">
+                    <label for="nik" class="text-sm text-gray-800 font-semibold">
+                        Berat Badan Lahir (kg)
+                    </label>
+
+                    <input pInputText type="number" class="p-inputtext-sm w-full" placeholder="Input Berat Lahir Disini"
+                        formControlName="berat_lahir" />
+                </div>
+
+                <!-- Panjang Badan Lahir (cm) -->
+                <div class="flex flex-col gap-1 mb-5">
+                    <label for="nik" class="text-sm text-gray-800 font-semibold">
+                        Panjang Badan Lahir (cm)
+                    </label>
+
+                    <input pInputText type="number" class="p-inputtext-sm w-full"
+                        placeholder="Input Panjang Lahir Disini" formControlName="panjang_lahir" />
+                </div>
+
+                <!-- Masih Asi -->
+                <div class="flex flex-col gap-1 mb-5">
+                    <label for="nik" class="text-sm text-gray-800 font-semibold">
+                        Masih Asi
+                    </label>
+
+                    <div class="flex flex-row gap-3 items-center">
+                        <div class="flex items-center">
+                            <p-radioButton inputId="'asi_1'" name="asi" value="1" formControlName="asi"></p-radioButton>
+                            <label for="asi_1" class="ml-1">
+                                Iya
+                            </label>
+                        </div>
+                        <div class="flex items-center">
+                            <p-radioButton inputId="'asi_0'" name="asi" value="0" formControlName="asi"></p-radioButton>
+                            <label for="asi_0" class="ml-1">
+                                Tidak
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Button -->
+                <div *ngIf="FormState == 'add'" class="grid w-full">
+                    <p-button label="Simpan" (onClick)="handleSaveBalita()"
+                        styleClass="p-button-raised p-button-success p-button-sm bg-white w-full">
+                    </p-button>
+                </div>
+            </div>
+        </p-tabPanel>
+        <p-tabPanel header="Daftar Data Balita">
+            <div *ngFor="let item of BalitaDatasource"
+                class="flex flex-col border-b border-x-0 border-t-0 border-solid border-gray-200 mb-2 py-2 cursor-pointer"
+                (click)="getDetail(item)">
+                <p class="text-sky-500 text-base mb-1">
+                    {{ item.nama_bayi | titlecase }}
+                </p>
+                <p class="text-gray-800 text-xs mb-1">
+                    <i class="pi pi-heart text-xs"></i>&nbsp; Ibu {{ item.nama_ibu | titlecase }}
+                </p>
+                <p class="text-gray-600 text-xs">
+                    <i class="pi pi-map-marker text-xs"></i>&nbsp; {{ item.domisili }}
+                </p>
+            </div>
+        </p-tabPanel>
+    </p-tabView>
+</app-dashboard>

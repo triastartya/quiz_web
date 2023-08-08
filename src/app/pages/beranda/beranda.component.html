@@ -1,0 +1,55 @@
+<app-dashboard>
+    <div class="flex gap-2 p-2 justify-center items-center mb-5" data-aos="fade-right" data-aos-duration="1000">
+        <img src="../../../assets/img/posyandu.png" alt="" class="h-10 w-auto drop-shadow-sm">
+
+        <p class="text-sky-500 font-semibold text-lg">
+            Posyandu {{ UserData.posyandu.nama_posyandu }}
+        </p>
+    </div>
+
+    <div class="flex flex-row gap-5 justify-center mb-5" data-aos="fade-right" data-aos-duration="1000">
+        <div class="flex flex-col w-6/12 rounded-lg shadow-sm bg-gray-50 p-2 items-center justify-center gap-3 cursor-pointer"
+            (click)="onNavigateTo('data-ibu')">
+            <img src="../../../assets/img/ibu.png" alt="" class="h-20 rounded-lg">
+            <p class="text-sky-500 text-sm font-semibold">
+                Data Ibu
+            </p>
+        </div>
+
+        <div class="flex flex-col w-6/12 rounded-lg shadow-sm bg-gray-50 p-2 items-center justify-center gap-3 cursor-pointer"
+            (click)="onNavigateTo('data-balita')">
+            <img src="../../../assets/img/balita.png" alt="" class="h-20 rounded-lg">
+            <p class="text-sky-500 text-sm font-semibold">
+                Data Balita
+            </p>
+        </div>
+    </div>
+
+    <div class="flex flex-row gap-5 justify-center mb-5" data-aos="fade-right" data-aos-duration="1000">
+        <div class="flex flex-col w-6/12 rounded-lg shadow-sm bg-gray-50 p-2 items-center justify-center gap-3 cursor-pointer"
+            (click)="onNavigateTo('hitung-stunting')">
+            <img src="../../../assets/img/hitung.png" alt="" class="h-20 rounded-lg">
+            <p class="text-sky-500 text-sm font-semibold">
+                Hitung Stunting
+            </p>
+        </div>
+
+        <div class="flex flex-col w-6/12 rounded-lg shadow-sm bg-gray-50 p-2 items-center justify-center gap-3 cursor-pointer"
+            (click)="onNavigateTo('edukasi')">
+            <img src="../../../assets/img/education.png" alt="" class="h-20 rounded-lg">
+            <p class="text-sky-500 text-sm font-semibold">
+                Materi Edukasi
+            </p>
+        </div>
+    </div>
+
+    <div class="flex flex-row gap-5 justify-center" data-aos="fade-right" data-aos-duration="1000">
+        <div class="flex flex-col w-6/12 rounded-lg shadow-sm bg-gray-50 p-2 items-center justify-center gap-3 cursor-pointer"
+            (click)="onNavigateTo('hasil-pemeriksaan')">
+            <img src="../../../assets/img/update.png" alt="" class="h-20 rounded-lg">
+            <p class="text-sky-500 text-sm font-semibold">
+                Hasil Pemeriksaan
+            </p>
+        </div>
+    </div>
+</app-dashboard>

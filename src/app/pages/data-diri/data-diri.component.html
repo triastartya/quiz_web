@@ -1,0 +1,103 @@
+<app-layout-quiz>
+    <h2 class="text-xl font-semibold mb-10 text-shadow">INPUT DATA DIRI </h2>
+    <div [formGroup]="Form">
+        <!-- Nama Ibu -->
+        <div class="flex flex-col gap-1 mb-4">
+            <label for="nik" class="text-sm  font-semibold">
+                Nama Ibu
+            </label>
+            <p-dropdown appendTo="body" formControlName="id_ibu"  optionValue="id"
+                optionLabel="nama_ibu" styleClass="w-full p-inputtext-sm" [autoDisplayFirst]="false"
+                [filter]="true" placeholder="Pilih Ibu Disini">
+            </p-dropdown>
+        </div>
+
+        <!-- NIK Balita -->
+        <div class="flex flex-col gap-1 mb-4">
+            <label for="nik" class="text-sm  font-semibold">
+                NIK Balita
+            </label>
+            <input pInputText type="text" class="p-inputtext-sm w-full" placeholder="Input NIK Balita Disini"
+                formControlName="nik_bayi" [mask]="'0000.0000.0000.0000'" />
+        </div>
+
+        <!-- Nama Balita -->
+        <div class="flex flex-col gap-1 mb-4">
+            <label for="nik" class="text-sm  font-semibold">
+                Nama Balita
+            </label>
+            <input pInputText type="text" class="p-inputtext-sm w-full" placeholder="Input Nama Balita Disini"
+                formControlName="nama_bayi" />
+        </div>
+
+        <!-- Jenis Kelamin -->
+        <div class="flex flex-col gap-1 mb-4">
+            <label for="nik" class="text-sm  font-semibold">
+                Jenis Kelamin
+            </label>
+            <p-dropdown appendTo="body" formControlName="jenis_kelamin" 
+                optionValue="value" optionLabel="text" styleClass="w-full p-inputtext-sm"
+                [autoDisplayFirst]="false" [filter]="true" placeholder="Pilih Jenis Kelamin Balita Disini">
+            </p-dropdown>
+        </div>
+
+        <!-- Tanggal Lahir -->
+        <div class="flex flex-col gap-1 mb-5">
+            <label for="nik" class="text-sm  font-semibold">
+                Tanggal Lahir
+            </label>
+
+            <p-calendar formControlName="tanggal_lahir" [touchUI]="true" styleClass="w-full p-inputtext-sm"
+                [showButtonBar]="true" [dateFormat]="'dd/MM/yy'" placeholder="Input Tanggal Lahir Disini">
+            </p-calendar>
+        </div>
+
+        <!-- Berat Badan Lahir (kg) -->
+        <div class="flex flex-col gap-1 mb-5">
+            <label for="nik" class="text-sm  font-semibold">
+                Berat Badan Lahir (kg)
+            </label>
+
+            <input pInputText type="number" class="p-inputtext-sm w-full" placeholder="Input Berat Lahir Disini"
+                formControlName="berat_lahir" />
+        </div>
+
+        <!-- Panjang Badan Lahir (cm) -->
+        <div class="flex flex-col gap-1 mb-5">
+            <label for="nik" class="text-sm  font-semibold">
+                Panjang Badan Lahir (cm)
+            </label>
+
+            <input pInputText type="number" class="p-inputtext-sm w-full"
+                placeholder="Input Panjang Lahir Disini" formControlName="panjang_lahir" />
+        </div>
+
+        <!-- Masih Asi -->
+        <div class="flex flex-col gap-1 mb-5">
+            <label for="nik" class="text-sm  font-semibold">
+                Masih Asi
+            </label>
+
+            <div class="flex flex-row gap-3 items-center">
+                <div class="flex items-center">
+                    <p-radioButton inputId="'asi_1'" name="asi" value="1" formControlName="asi"></p-radioButton>
+                    <label for="asi_1" class="ml-1">
+                        Iya
+                    </label>
+                </div>
+                <div class="flex items-center">
+                    <p-radioButton inputId="'asi_0'" name="asi" value="0" formControlName="asi"></p-radioButton>
+                    <label for="asi_0" class="ml-1">
+                        Tidak
+                    </label>
+                </div>
+            </div>
+        </div>
+        
+        <div class="flex flex-col w-full mb-5">
+            <p-button label="Mulai" (onClick)="handleClikMulai()" 
+                styleClass="w-full mt-auto bg-violet-800 bg-opacity-50 hover:bg-opacity-75 transition-colors duration-200 rounded-xl font-semibold py-2 px-4 inline-flex">
+            </p-button>
+        </div>
+    </div>
+</app-layout-quiz>

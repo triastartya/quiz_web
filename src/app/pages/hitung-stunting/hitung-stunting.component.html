@@ -1,0 +1,226 @@
+<app-dashboard>
+    <p-tabView [(activeIndex)]="TabIndex" (onChange)="handleChangeTab($event)" data-aos="fade-right"
+        data-aos-duration="1000">
+        <p-tabPanel header="Input Pemeriksaan">
+            <div [formGroup]="Form">
+                <!-- Nama Balita -->
+                <div *ngIf="UserData" class="flex flex-col gap-1 mb-4">
+                    <label for="nik" class="text-sm text-gray-800 font-semibold">
+                        Nama Balita
+                    </label>
+                    <p-dropdown appendTo="body" [options]="BalitaDatasource" optionLabel="nama_bayi"
+                        styleClass="w-full p-inputtext-sm" [autoDisplayFirst]="false" [filter]="true"
+                        placeholder="Pilih Balita Disini" (onChange)="handleChangeDropdownBalita($event)">
+                    </p-dropdown>
+                </div>
+
+                <div class="flex flex-row gap-3 mb-5">
+                    <!-- Berat Badan (kg) -->
+                    <div class="flex flex-col gap-1 w-6/12">
+                        <label for="nik" class="text-sm text-gray-800 font-semibold">
+                            Berat Badan (kg)
+                        </label>
+
+                        <input pInputText type="number" class="p-inputtext-sm w-full"
+                            placeholder="Input Berat Badan Disini" formControlName="berat_badan" />
+                    </div>
+
+                    <!-- Panjang Badan (kg) -->
+                    <div class="flex flex-col gap-1 w-6/12">
+                        <label for="nik" class="text-sm text-gray-800 font-semibold">
+                            Panjang Badan (cm)
+                        </label>
+
+                        <input pInputText type="number" class="p-inputtext-sm w-full"
+                            placeholder="Input Panjang Badan Disini" formControlName="tinggi_badan" />
+                    </div>
+                </div>
+
+                <div class="flex flex-row gap-3 mb-5">
+                    <!-- Lingkar Lengan Atas (cm) -->
+                    <div class="flex flex-col gap-1 w-6/12">
+                        <label for="nik" class="text-sm text-gray-800 font-semibold">
+                            Lingkar Lengan Atas (cm)
+                        </label>
+
+                        <input pInputText type="number" class="p-inputtext-sm w-full"
+                            placeholder="Input Lingkar Lengan Atas Disini" formControlName="lingkar_lengan" />
+                    </div>
+
+                    <!-- Lingkar Kepala (cm) -->
+                    <div class="flex flex-col gap-1 w-6/12">
+                        <label for="nik" class="text-sm text-gray-800 font-semibold">
+                            Lingkar Kepala (cm)
+                        </label>
+
+                        <input pInputText type="number" class="p-inputtext-sm w-full"
+                            placeholder="Input Lingkar Kepala Disini" formControlName="lingkar_kepala" />
+                    </div>
+                </div>
+
+                <div class="flex flex-row gap-3 mb-5">
+                    <!-- Tanggal Lahir -->
+                    <div class="flex flex-col gap-1 w-6/12">
+                        <label for="nik" class="text-sm text-gray-800 font-semibold">
+                            Tanggal Lahir
+                        </label>
+
+                        <p-calendar formControlName="tanggal_lahir" [touchUI]=" true" styleClass="w-full p-inputtext-sm"
+                            [showButtonBar]="true" [dateFormat]="'dd/MM/yy'" placeholder="Input Tanggal Lahir Disini"
+                            (onSelect)="handleChangeTanggalLahir($event)">
+                        </p-calendar>
+                    </div>
+
+                    <!-- Umur (Bulan) -->
+                    <div class="flex flex-col gap-1 w-6/12">
+                        <label for="nik" class="text-sm text-gray-800 font-semibold">
+                            Umur (Bulan)
+                        </label>
+
+                        <input pInputText type="number" class="p-inputtext-sm w-full" readonly [disabled]="true"
+                            formControlName="umur_bulan" />
+                    </div>
+                </div>
+
+                <div class="flex flex-row gap-3 mb-5">
+                    <!-- Jenis Kelamin -->
+                    <div class="flex flex-col gap-1 w-6/12">
+                        <label for="nik" class="text-sm text-gray-800 font-semibold">
+                            Jenis Kelamin
+                        </label>
+                        <p-dropdown appendTo="body" formControlName="jenis_kelamin" [options]="JenisKelaminDatasource"
+                            optionValue="value" optionLabel="text" styleClass="w-full p-inputtext-sm"
+                            [autoDisplayFirst]="false" [filter]="true" placeholder="Pilih Jenis Kelamin Balita Disini">
+                        </p-dropdown>
+                    </div>
+
+                    <!-- Umur (Bulan) -->
+                    <div class="flex flex-col gap-1 w-6/12">
+                        <label for="nik" class="text-sm text-gray-800 font-semibold">
+                            Tanggal Pemeriksaan
+                        </label>
+
+                        <p-calendar formControlName="tanggal_ukur" [touchUI]="true" styleClass="w-full p-inputtext-sm"
+                            [showButtonBar]="true" [dateFormat]="'dd/MM/yy'" placeholder="Input Pemeriksaan Disini">
+                        </p-calendar>
+                    </div>
+                </div>
+
+                <!-- Masih Asi -->
+                <div class="flex flex-col gap-1 mb-5">
+                    <label for="nik" class="text-sm text-gray-800 font-semibold">
+                        Masih Asi
+                    </label>
+
+                    <div class="flex flex-row gap-3 items-center">
+                        <div class="flex items-center">
+                            <p-radioButton inputId="'asi_1'" name="asi" value="1" formControlName="asi"></p-radioButton>
+                            <label for="asi_1" class="ml-1">
+                                Iya
+                            </label>
+                        </div>
+                        <div class="flex items-center">
+                            <p-radioButton inputId="'asi_0'" name="asi" value="0" formControlName="asi"></p-radioButton>
+                            <label for="asi_0" class="ml-1">
+                                Tidak
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Button -->
+                <div class="grid w-full">
+                    <p-button label="Hitung Pemeriksaan" (onClick)="handleHitungStunting()"
+                        styleClass="p-button-raised p-button-success p-button-sm bg-white w-full">
+                    </p-button>
+                </div>
+            </div>
+        </p-tabPanel>
+        <p-tabPanel header="Hasil Pemeriksaan">
+            <div *ngFor="let item of ResultHitungStunting"
+                class="flex flex-col border-b border-x-0 border-t-0 border-solid border-gray-200 mb-2 py-2">
+                <p class="text-sky-500 text-base font-semibold mb-2">
+                    Status Gizi {{ item.jenis_pemeriksaan }}
+                </p>
+
+                <div class="flex gap-2 mb-2">
+                    <div class="flex flex-col w-4/12">
+                        <p class="text-gray-500 text-sm">
+                            Min
+                        </p>
+                        <p class="text-sky-500 text-sm">
+                            {{ item.min }}
+                        </p>
+                    </div>
+
+                    <div class="flex flex-col w-4/12">
+                        <p class="text-gray-500 text-sm">
+                            Max
+                        </p>
+                        <p class="text-sky-500 text-sm">
+                            {{ item.max }}
+                        </p>
+                    </div>
+
+                    <div class="flex flex-col w-4/12">
+                        <p class="text-gray-500 text-sm">
+                            Range
+                        </p>
+                        <p class="text-sky-500 text-sm">
+                            {{ item.range }}
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flex gap-2 mb-2 items-end">
+                    <div class="flex flex-col w-6/12">
+                        <p class="text-gray-500 text-sm">
+                            Status Gizi
+                        </p>
+                        <p class="text-sky-500 text-sm">
+                            {{ item.status_gizi }}
+                        </p>
+                    </div>
+
+                    <div class="flex flex-col w-6/12">
+                        <p class="text-gray-500 text-sm">
+                            Indikator Warna
+                        </p>
+                        <p class="text-sm">
+                            <i class="pi pi-circle-fill text-xs" [style.color]="item.warna[0]"></i>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flex gap-2 mb-2">
+                    <div class="flex flex-col w-6/12">
+                        <p class="text-gray-500 text-sm">
+                            Z Score
+                        </p>
+                        <p class="text-sky-500 text-sm">
+                            {{ item.z_score }}
+                        </p>
+                    </div>
+
+                    <div class="flex flex-col w-6/12">
+                        <p class="text-gray-500 text-sm">
+                            Ideal
+                        </p>
+                        <p class="text-sky-500 text-sm">
+                            {{ item.ideal }}
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flex flex-col mb-2">
+                    <p class="text-gray-500 text-sm">
+                        Feedback
+                    </p>
+                    <p class="text-sky-500 text-sm">
+                        {{ item.feedback }}
+                    </p>
+                </div>
+            </div>
+        </p-tabPanel>
+    </p-tabView>
+</app-dashboard>

@@ -1,0 +1,21 @@
+<app-dashboard>
+    <div class="flex items-center justify-center mb-3" data-aos="fade-right" data-aos-duration="1000">
+        <p class="text-sky-600 font-semibold text-lg">
+            Edukasi
+        </p>
+    </div>
+
+    <div class="flex" data-aos="fade-right" data-aos-duration="1000">
+        <p-accordion [activeIndex]="0">
+            <p-accordionTab *ngFor="let item of EdukasiDatasource" [header]="item.title" [headerStyleClass]="'text-sm'">
+                <p class="text-sm text-gray-600 mb-4">
+                    {{ item.description }}
+                </p>
+
+                <p class="text-sm text-sky-500 cursor-pointer" (click)="onDownloadFile(item)">
+                    <i class="pi pi-cloud-download text-xs"></i>&nbsp; Klik untuk unduh file
+                </p>
+            </p-accordionTab>
+        </p-accordion>
+    </div>
+</app-dashboard>

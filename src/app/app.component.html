@@ -1,0 +1,7 @@
+<section id="wrapper" class="h-screen mx-auto bg-gray-50" style="max-width: 480px">
+    <router-outlet></router-outlet>
+
+    <app-loading #Loading></app-loading>
+
+    <p-toast [breakpoints]="{'920px': {width: 'calc(100vw - 40px)'}}" [position]="'top-center'"></p-toast>
+</section>
