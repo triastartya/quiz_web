@@ -94,7 +94,7 @@ export class DataDiriComponent implements OnInit {
             nisn: ['', []],
             nama: ['', []],
             email: ['', []],
-            tanggal_lahir: ["", []],
+            tgl_lahir: [null, []],
             alamat: ['', []],
             berat_badan: [0, []],
             tinggi_badan: [0, []],
@@ -108,6 +108,7 @@ export class DataDiriComponent implements OnInit {
             pekerjaan_ibu: ['', []],
             jumlah_anggota_keluarga_di_rumah: [0, []],
             riwayat_asi_eksekutif: ['', []],
+            tanggal_lahir: [null, []]
         });
     }
 
@@ -129,7 +130,7 @@ export class DataDiriComponent implements OnInit {
         this.id_ibu.setValue(data.id_ibu);
         this.nik_bayi.setValue(data.nik_bayi);
         this.nama_bayi.setValue(data.nama_bayi);
-        this.tanggal_lahir.setValue(new Date(data.tanggal_lahir));
+        // this.tgl_lahir.setValue(new Date(data.tgl_lahir));
         this.berat_lahir.setValue(data.berat_lahir);
         this.panjang_lahir.setValue(data.panjang_lahir);
         this.jenis_kelamin.setValue(data.jenis_kelamin);
@@ -155,7 +156,7 @@ export class DataDiriComponent implements OnInit {
     }
 
     handleSaveBalita(): void {
-        this.tanggal_lahir.setValue(formatDate(this.tanggal_lahir.value, 'yyyy-MM-dd', 'EN'));
+        this.tgl_lahir.setValue(formatDate(this.tgl_lahir.value, 'yyyy-MM-dd', 'EN'));
 
         this._bayiService.onPostSaveBayi(this.Form.value)
             .subscribe((result) => {
@@ -178,7 +179,7 @@ export class DataDiriComponent implements OnInit {
         this.id_ibu.setValue(0);
         this.nik_bayi.setValue("");
         this.nama_bayi.setValue("");
-        this.tanggal_lahir.setValue("");
+        this.tgl_lahir.setValue("");
         this.berat_lahir.setValue(0);
         this.panjang_lahir.setValue(0);
         this.jenis_kelamin.setValue("L");
@@ -187,13 +188,12 @@ export class DataDiriComponent implements OnInit {
 
     handleClikMulai() {
         let data = this.Form.value
-        const dateSplited = this.tanggal_lahir.value
-        console.log(dateSplited);
+        this.tgl_lahir.setValue(formatDate(this.tgl_lahir.value, 'yyyy-MM-dd', 'EN'));
+        console.log('from controller', this.tgl_lahir.value);
+
 
         this._dataDiriService.onPostdataDiri(data).subscribe(result => {
-            console.log('result', result.data);
-            alert('simpan datanya')
-
+            alert(result.status)
 
         })
         // this._router.navigate(['/quiz']);
@@ -202,7 +202,7 @@ export class DataDiriComponent implements OnInit {
     get id_ibu(): AbstractControl { return this.Form.get('id_ibu') as AbstractControl; }
     get nik_bayi(): AbstractControl { return this.Form.get('nik_bayi') as AbstractControl; }
     get nama_bayi(): AbstractControl { return this.Form.get('nama_bayi') as AbstractControl; }
-    get tanggal_lahir(): AbstractControl { return this.Form.get('tanggal_lahir') as AbstractControl; }
+    get tgl_lahir(): AbstractControl { return this.Form.get('tgl_lahir') as AbstractControl; }
     get berat_lahir(): AbstractControl { return this.Form.get('berat_lahir') as AbstractControl; }
     get panjang_lahir(): AbstractControl { return this.Form.get('panjang_lahir') as AbstractControl; }
     get jenis_kelamin(): AbstractControl { return this.Form.get('jenis_kelamin') as AbstractControl; }

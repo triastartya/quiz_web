@@ -17,10 +17,12 @@ export namespace DataDiri {
         pekerjaan_ibu: string
         jumlah_anggota_keluarga_di_rumah: number
         riwayat_asi_eksekutif: string
+        tgl_lahir: Date
     }
 
     export interface GetDataDiri {
-        status: number
+        statusCode: number;
+        status: boolean
         message: string
     }
 }
