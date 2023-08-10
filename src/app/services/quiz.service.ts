@@ -5,20 +5,19 @@ import { Observable } from 'rxjs';
 import { PayloadQuizModel } from '../model/quiz.model';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class QuizService {
 
-  constructor(
-    private httpOperationService: HttpRequestService
-  ) { }
+    constructor(
+        private httpOperationService: HttpRequestService
+    ) { }
 
-  onGetAllQuiz(): Observable<PayloadQuizModel> {
-    return this.httpOperationService.getRequest(`${environment.api}/quizall`);
-  }
+    onGetAllQuiz(): Observable<PayloadQuizModel> {
+        return this.httpOperationService.getRequest(`${environment.api}/quizall`);
+    }
 
-  onPostSave(body:any): Observable<any> {
-    return this.httpOperationService.postRequest(`${environment.api}/quiz`, body);
-  }
-
+    onPostSave(body: any): Observable<any> {
+        return this.httpOperationService.postRequest(`${environment.api}/quizReport`, body);
+    }
 }

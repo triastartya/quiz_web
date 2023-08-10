@@ -17,6 +17,7 @@ import { ButtonModule } from 'primeng/button';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { TabViewModule } from 'primeng/tabview';
 import { AccordionModule } from 'primeng/accordion';
+import { InputTextareaModule } from 'primeng/inputtextarea';
 
 import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
 
@@ -39,6 +40,7 @@ import { FristScreenComponent } from './pages/frist-screen/frist-screen.componen
 import { DataDiriComponent } from './pages/data-diri/data-diri.component';
 import { QuizComponent } from './pages/quiz/quiz.component';
 import { LayoutQuizComponent } from './components/layout/layout-quiz/layout-quiz.component';
+import { RaportComponent } from './pages/raport/raport.component';
 
 @NgModule({
     declarations: [
@@ -56,7 +58,8 @@ import { LayoutQuizComponent } from './components/layout/layout-quiz/layout-quiz
         FristScreenComponent,
         DataDiriComponent,
         QuizComponent,
-        LayoutQuizComponent
+        LayoutQuizComponent,
+        RaportComponent
     ],
     imports: [
         BrowserModule,
@@ -79,6 +82,7 @@ import { LayoutQuizComponent } from './components/layout/layout-quiz/layout-quiz
         AccordionModule,
         NgxMaskDirective,
         NgxMaskPipe,
+        InputTextareaModule
     ],
     providers: [
         MessageService,

@@ -1,25 +1,25 @@
 <app-layout-quiz>
     <h2 class="text-xl font-semibold mb-10 text-shadow">INPUT DATA DIRI </h2>
     <div [formGroup]="Form">
-         <!-- NISN -->
-         <div class="flex flex-col gap-1 mb-4">
+        <!-- NISN -->
+        <div class="flex flex-col gap-1 mb-4">
             <label for="nik" class="text-sm  font-semibold">
                 NISN
             </label>
-            <input pInputText type="text" class="p-inputtext-sm w-full" placeholder="NISN"
-            formControlName="nisn" />
+            <input pInputText type="text" class="p-inputtext-sm w-full" placeholder="NISN" formControlName="nisn" />
             <!-- <p-dropdown appendTo="body" formControlName="id_ibu"  optionValue="id"
                 optionLabel="nama_ibu" styleClass="w-full p-inputtext-sm" [autoDisplayFirst]="false"
                 [filter]="true" placeholder="Pilih Ibu Disini">
             </p-dropdown> -->
         </div>
+
         <!-- Nama Ibu -->
         <div class="flex flex-col gap-1 mb-4">
             <label for="nik" class="text-sm  font-semibold">
                 Nama *
             </label>
-            <input pInputText type="text" class="p-inputtext-sm w-full" placeholder="Input Nama"
-            formControlName="nama" required/>
+            <input pInputText type="text" class="p-inputtext-sm w-full" placeholder="Input Nama" formControlName="nama"
+                required />
             <!-- <p-dropdown appendTo="body" formControlName="id_ibu"  optionValue="id"
                 optionLabel="nama_ibu" styleClass="w-full p-inputtext-sm" [autoDisplayFirst]="false"
                 [filter]="true" placeholder="Pilih Ibu Disini">
@@ -32,27 +32,18 @@
                 Email Aktif
             </label>
             <input pInputText type="text" class="p-inputtext-sm w-full" placeholder="Input Email Aktif"
-                formControlName="email"  />
-                <!-- [mask]="'0000.0000.0000.0000'" -->
+                formControlName="email" />
         </div>
-
-        <!-- Nama Balita -->
-        <!-- <div class="flex flex-col gap-1 mb-4">
-            <label for="nik" class="text-sm  font-semibold">
-                Nama Balita
-            </label>
-            <input pInputText type="text" class="p-inputtext-sm w-full" placeholder="Input Nama Balita Disini"
-                formControlName="nama_bayi" />
-        </div> -->
 
         <!-- Jenis Kelamin -->
         <div class="flex flex-col gap-1 mb-4">
             <label for="nik" class="text-sm  font-semibold">
                 Jenis Kelamin *
             </label>
-            <p-dropdown appendTo="body" formControlName="jenis_kelamin" 
-                optionValue="value" optionLabel="text" styleClass="w-full p-inputtext-sm"
-                [autoDisplayFirst]="false" [filter]="true" placeholder="Pilih Jenis Kelamin" [options]="JenisKelaminDatasource" [(ngModel)]="SelectedJenisKelamin" [required]="true">
+            <p-dropdown appendTo="body" formControlName="jenis_kelamin" optionValue="value" optionLabel="text"
+                styleClass="w-full p-inputtext-sm" [autoDisplayFirst]="false" [filter]="true"
+                placeholder="Pilih Jenis Kelamin" [options]="JenisKelaminDatasource" [(ngModel)]="SelectedJenisKelamin"
+                [required]="true">
             </p-dropdown>
         </div>
 
@@ -61,8 +52,8 @@
             <label for="nik" class="text-sm  font-semibold">
                 Tanggal Lahir
             </label>
-            <p-calendar formControlName="tgl_lahir" [touchUI]="true"  styleClass="w-full p-inputtext-sm"
-                [showButtonBar]="true" [dateFormat]="'yy/MM/dd'"  placeholder="Input Tanggal Lahir Disini">
+            <p-calendar formControlName="tgl_lahir" [touchUI]="true" styleClass="w-full p-inputtext-sm"
+                [showButtonBar]="true" [dateFormat]="'yy/MM/dd'" placeholder="Input Tanggal Lahir Disini">
             </p-calendar>
         </div>
 
@@ -72,7 +63,8 @@
                 Alamat
             </label>
             <span class="p-float-label">
-                <textarea id="float-input" rows="5" cols="30" class="w-full border rounded-md" pInputTextarea styleClass="w-full" formControlName="alamat"></textarea>
+                <textarea id="float-input" rows="5" cols="30" class="w-full border rounded-md" pInputTextarea
+                    styleClass="w-full" formControlName="alamat"></textarea>
             </span>
         </div>
 
@@ -92,8 +84,8 @@
                 Tinggi Badan (cm)
             </label>
 
-            <input pInputText type="number" class="p-inputtext-sm w-full"
-                placeholder="Input Tinggi Badan" formControlName="tinggi_badan" />
+            <input pInputText type="number" class="p-inputtext-sm w-full" placeholder="Input Tinggi Badan"
+                formControlName="tinggi_badan" />
         </div>
 
         <!-- Panjang Badan Lahir (cm) -->
@@ -102,30 +94,28 @@
                 Lila (cm)
             </label>
 
-            <input pInputText type="text" class="p-inputtext-sm w-full"
-                placeholder="Input Lila" formControlName="lila_p" />
+            <input pInputText type="number" class="p-inputtext-sm w-full" placeholder="Input Lila"
+                formControlName="lila_p" />
         </div>
 
-         <!--Tinggal-->
-         <div class="flex flex-col gap-1 mb-4">
+        <!--Tinggal-->
+        <div class="flex flex-col gap-1 mb-4">
             <label for="nik" class="text-sm  font-semibold">
                 Tinggal
             </label>
-            <p-dropdown appendTo="body" formControlName="tinggal" 
-                optionValue="value" optionLabel="text" styleClass="w-full p-inputtext-sm"
-                [autoDisplayFirst]="false" [filter]="true" placeholder="Pilih Tinggal"
-                [options]="TinggalDataSource" [(ngModel)]="SelectedTinggal">
+            <p-dropdown appendTo="body" formControlName="tinggal" optionValue="value" optionLabel="text"
+                styleClass="w-full p-inputtext-sm" [autoDisplayFirst]="false" [filter]="true"
+                placeholder="Pilih Tinggal" [options]="TinggalDataSource" [(ngModel)]="SelectedTinggal">
             </p-dropdown>
         </div>
 
-         <!-- Uang Saku -->
-         <div class="flex flex-col gap-1 mb-4">
+        <!-- Uang Saku -->
+        <div class="flex flex-col gap-1 mb-4">
             <label for="nik" class="text-sm  font-semibold">
                 Uang Saku (Rp.)
             </label>
-            <input pInputText type="text" class="p-inputtext-sm w-full" placeholder="Input Uang Saku"
-                formControlName="uang_saku" />
-                <!-- [mask]="'0000.0000.0000.0000'" -->
+            <p-inputNumber placeholder="Input Uang Saku" class="p-inputtext-sm w-full"
+                formControlName="uang_saku"></p-inputNumber>
         </div>
 
         <!-- Pendidikan Ayah -->
@@ -133,53 +123,55 @@
             <label for="" class="text-sm font-semibold">
                 Pendidikan Ayah
             </label>
-            <p-dropdown ppendTo="body" formControlName="pendidikan_ayah" 
-            optionValue="value" optionLabel="text" styleClass="w-full p-inputtext-sm"
-            [autoDisplayFirst]="false" [filter]="true" placeholder="Pilih Pendidikan Ayah" [options]="PendidikanDataSource" [(ngModel)]="SelectedPendidikanAyah">
-                </p-dropdown>
+            <p-dropdown ppendTo="body" formControlName="pendidikan_ayah" optionValue="value" optionLabel="text"
+                styleClass="w-full p-inputtext-sm" [autoDisplayFirst]="false" [filter]="true"
+                placeholder="Pilih Pendidikan Ayah" [options]="PendidikanDataSource"
+                [(ngModel)]="SelectedPendidikanAyah">
+            </p-dropdown>
         </div>
-         <!-- Pendidikan Ibu -->
-         <div class="flex flex-col gap-1 mb-5">
+
+        <!-- Pendidikan Ibu -->
+        <div class="flex flex-col gap-1 mb-5">
             <label for="" class="text-sm font-semibold">
                 Pendidikan Ibu
             </label>
-            <p-dropdown ppendTo="body" formControlName="pendidikan_ibu" 
-            optionValue="value" optionLabel="text" styleClass="w-full p-inputtext-sm"
-            [autoDisplayFirst]="false" [filter]="true" placeholder="Pilih Pendidikan Ibu" [options]="PendidikanDataSource" [(ngModel)]="SelectedPendidikanIbu">
-                </p-dropdown>
+            <p-dropdown ppendTo="body" formControlName="pendidikan_ibu" optionValue="value" optionLabel="text"
+                styleClass="w-full p-inputtext-sm" [autoDisplayFirst]="false" [filter]="true"
+                placeholder="Pilih Pendidikan Ibu" [options]="PendidikanDataSource" [(ngModel)]="SelectedPendidikanIbu">
+            </p-dropdown>
         </div>
 
-         <!-- Pekerjaan Ayah -->
-         <div class="flex flex-col gap-1 mb-5">
+        <!-- Pekerjaan Ayah -->
+        <div class="flex flex-col gap-1 mb-5">
             <label for="" class="text-sm font-semibold">
                 Pekerjaan Ayah
             </label>
-            <p-dropdown ppendTo="body" formControlName="pekerjaan_ayah" 
-            optionValue="value" optionLabel="text" styleClass="w-full p-inputtext-sm"
-            [autoDisplayFirst]="false" [filter]="true" placeholder="Pilih Pekerjaan Ayah" [options]="PekerjaanDataSource" [(ngModel)]="SelectedPekerjaanAyah">
-                </p-dropdown>
+            <p-dropdown ppendTo="body" formControlName="pekerjaan_ayah" optionValue="value" optionLabel="text"
+                styleClass="w-full p-inputtext-sm" [autoDisplayFirst]="false" [filter]="true"
+                placeholder="Pilih Pekerjaan Ayah" [options]="PekerjaanDataSource" [(ngModel)]="SelectedPekerjaanAyah">
+            </p-dropdown>
         </div>
-         <!-- Pendidikan Ibu -->
-         <div class="flex flex-col gap-1 mb-5">
+
+        <!-- Pendidikan Ibu -->
+        <div class="flex flex-col gap-1 mb-5">
             <label for="" class="text-sm font-semibold">
                 Pekerjaan Ibu
             </label>
-            <p-dropdown ppendTo="body" formControlName="pekerjaan_ibu" 
-            optionValue="value" optionLabel="text" styleClass="w-full p-inputtext-sm"
-            [autoDisplayFirst]="false" [filter]="true" placeholder="Pilih Pekerjaan Ibu" [options]="PekerjaanDataSource" [(ngModel)]="SelectedPekerjaanIbu">
-                </p-dropdown>
+            <p-dropdown ppendTo="body" formControlName="pekerjaan_ibu" optionValue="value" optionLabel="text"
+                styleClass="w-full p-inputtext-sm" [autoDisplayFirst]="false" [filter]="true"
+                placeholder="Pilih Pekerjaan Ibu" [options]="PekerjaanDataSource" [(ngModel)]="SelectedPekerjaanIbu">
+            </p-dropdown>
         </div>
 
-         <!-- Jumlah keluarga -->
-         <div class="flex flex-col gap-1 mb-4">
+        <!-- Jumlah keluarga -->
+        <div class="flex flex-col gap-1 mb-4">
             <label for="nik" class="text-sm  font-semibold">
                 Jumlah Anggota Keluarga di Rumah (Orang)
             </label>
             <input pInputText type="number" class="p-inputtext-sm w-full" placeholder="Input Anggota Keluarga Dirumah"
-                formControlName="jumlah_anggota_keluarga_di_rumah"   />
-                <!-- [mask]="'0000.0000.0000.0000'" -->
+                formControlName="jumlah_anggota_keluarga_di_rumah" />
+            <!-- [mask]="'0000.0000.0000.0000'" -->
         </div>
-
 
         <!-- Masih Asi -->
         <div class="flex flex-col gap-1 mb-5">
@@ -189,22 +181,24 @@
 
             <div class="flex flex-row gap-3 items-center">
                 <div class="flex items-center">
-                    <p-radioButton inputId="'asi_1'" name="riwayat_asi_eksekutif" value="iya" formControlName="riwayat_asi_eksekutif"></p-radioButton>
+                    <p-radioButton inputId="'asi_1'" name="riwayat_asi_eksekutif" value="iya"
+                        formControlName="riwayat_asi_eksekutif"></p-radioButton>
                     <label for="asi_1" class="ml-1">
                         Iya
                     </label>
                 </div>
                 <div class="flex items-center">
-                    <p-radioButton inputId="'asi_0'" name="riwayat_asi_eksekutif" value="tidak" formControlName="riwayat_asi_eksekutif"></p-radioButton>
+                    <p-radioButton inputId="'asi_0'" name="riwayat_asi_eksekutif" value="tidak"
+                        formControlName="riwayat_asi_eksekutif"></p-radioButton>
                     <label for="asi_0" class="ml-1">
                         Tidak
                     </label>
                 </div>
             </div>
         </div>
-        
+
         <div class="flex flex-col w-full mb-5">
-            <p-button label="Mulai" (onClick)="handleClikMulai()" 
+            <p-button label="Mulai" (onClick)="handleClikMulai()"
                 styleClass="w-full mt-auto bg-violet-800 bg-opacity-50 hover:bg-opacity-75 transition-colors duration-200 rounded-xl font-semibold py-2 px-4 inline-flex">
             </p-button>
         </div>

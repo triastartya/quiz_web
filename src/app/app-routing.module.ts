@@ -11,6 +11,7 @@ import { AuthGuard } from './helper/auth.guard';
 import { FristScreenComponent } from './pages/frist-screen/frist-screen.component';
 import { DataDiriComponent } from './pages/data-diri/data-diri.component';
 import { QuizComponent } from './pages/quiz/quiz.component';
+import { RaportComponent } from './pages/raport/raport.component';
 
 const routes: Routes = [
     {
@@ -21,6 +22,9 @@ const routes: Routes = [
     },
     {
         path: 'quiz', component: QuizComponent,
+    },
+    {
+        path: 'raport/:id', component: RaportComponent,
     },
     {
         path: 'beranda', component: BerandaComponent, canActivate: [AuthGuard]

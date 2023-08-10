@@ -1,22 +1,47 @@
 <app-layout-quiz>
     <h3 class="text-xl font-semibold mb-1 text-shadow"> Kuesioner </h3>
-    <p class="font-medium text-violet-100 text-shadow mb-2">  ({{jenis_question+1}}/{{data.length}}) {{ data[jenis_question].title }}</p>
+    <p class="font-medium text-violet-100 text-shadow mb-2">
+        ({{jenis_question+1}}/{{data.length}}) {{ data[jenis_question]?.title }}
+    </p>
     <!--  -->
     <div class="grid grid-cols-3 gap-4 mt-2">
-        <div class="flex items-center"><button (click)="kembali()" class="text-white bg-transparent border-none"><i class="pl-2 pi pi-chevron-left"></i></button></div>
+        <div class="flex items-center">
+            <button (click)="kembali()" class="text-white bg-transparent border-none">
+                <i class="pl-2 pi pi-chevron-left"></i>
+            </button>
+        </div>
+
         <div class="flex items-center justify-center">
-            <a class="text-xl font-semibold mb-1 text-shadow text-center"> {{current_soal+1}} / {{data[jenis_question].soal.length}} </a>
+            <a class="text-xl font-semibold mb-1 text-shadow text-center">
+                {{current_soal+1}} / {{data[jenis_question]?.soal?.length}}
+            </a>
         </div>
-        <div class="flex items-center justify-end"><button (click)="submit()" class="p-1 px-3 border-2 border-white rounded-xl bg-transparent text-white">Submit</button></div>
+        <div class="flex items-center justify-end">
+            <button (click)="submit()" class="p-1 px-3 border-2 border-white rounded-xl bg-transparent text-white">
+                Submit
+            </button>
+        </div>
     </div>
-    <div class="block max-w-sm p-4 bg-white border border-gray-200 rounded-xl shadow mt-5">
+
+    <div class="flex flex-col p-4 bg-white border border-gray-200 rounded-xl shadow mt-5">
         <p class="mb-1 text-xl font-bold tracking-tight text-gray-900">{{current_soal+1}} .</p>
-        <p class="mb-10 text-lg font-bold tracking-tight text-gray-900">{{data[jenis_question].soal[current_soal].question}}</p>
-        
-        <div *ngFor="let option of data[jenis_question].soal[current_soal].options; index as i" class="flex items-center pl-4 rounded-2xl my-5" style="border:1px solid blueviolet">
-            <input id="bordered-radio-{{option.id}}" type="radio" [checked]="option.jawaban" (change)="handleChangeRadioButton(i,option.score)" name="bordered-radio-{{data[jenis_question].soal[current_soal].id}}" class=" text-blue-600 bg-gray-100 border-gray-300">
-            <label for="bordered-radio-{{option.id}}" class="w-full py-2 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">{{option.question}}</label>
+
+        <p class="mb-3 text-lg font-bold tracking-tight text-gray-900">
+            {{data[jenis_question]?.soal?.[current_soal]?.question}}
+        </p>
+
+        <div *ngFor="let option of data[jenis_question]?.soal?.[current_soal]?.options; index as i"
+            class="flex items-center pl-4 rounded-2xl my-3" style="border:1px solid blueviolet">
+            <input id="bordered-radio-{{option.id}}" type="radio" [checked]="option.jawaban"
+                (change)="handleChangeRadioButton(i,option.score)"
+                name="bordered-radio-{{data[jenis_question]?.soal?.[current_soal]?.id}}"
+                class=" text-blue-600 bg-gray-100 border-gray-300">
+
+            <label for="bordered-radio-{{option.id}}"
+                class="w-full py-2 ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                {{option.question}}
+            </label>
         </div>
     </div>
-    <p-button (onClick)="lihat()" label="joko"></p-button>
+    <!-- <p-button (onClick)="lihat()" label="joko"></p-button> -->
 </app-layout-quiz>
