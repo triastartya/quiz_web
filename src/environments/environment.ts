@@ -4,7 +4,7 @@
 
 export const environment = {
     production: false,
-    api: 'https://quiz.sigembul-mbkm-udinus.com/public/api/',
+    api: 'https://quiz.sigembul-mbkm-udinus.com/public/api',
     report: 'https://quiz.sigembul-mbkm-udinus.com/public',
 };
 /*

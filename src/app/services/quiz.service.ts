@@ -14,7 +14,7 @@ export class QuizService {
   ) { }
 
   onGetAllQuiz(): Observable<PayloadQuizModel> {
-    return this.httpOperationService.getRequest(`${environment.api}quizall`);
+    return this.httpOperationService.getRequest(`${environment.api}/quizall`);
   }
 
   onPostSave(body:any): Observable<any> {
