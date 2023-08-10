@@ -21,7 +21,7 @@ const routes: Routes = [
         path: 'datadiri', component: DataDiriComponent,
     },
     {
-        path: 'quiz', component: QuizComponent,
+        path: 'quiz/:id', component: QuizComponent,
     },
     {
         path: 'raport/:id', component: RaportComponent,
