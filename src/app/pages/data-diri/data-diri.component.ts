@@ -79,12 +79,9 @@ export class DataDiriComponent implements OnInit {
     FormState: 'add' | 'detail' = 'add';
 
     constructor(
-        private _ibuService: IbuService,
-        private _bayiService: BayiService,
+        private _router: Router,
         private _formBuilder: FormBuilder,
         private _messageService: MessageService,
-        private _authenticationService: AuthenticationService,
-        private _router: Router,
         private _dataDiriService: DataDiriService
     ) {
         this.Form = this._formBuilder.group({
@@ -124,7 +121,7 @@ export class DataDiriComponent implements OnInit {
                     this._messageService.add({ severity: 'success', summary: 'Success', detail: 'Data Berhasil Disimpan' });
 
                     setTimeout(() => {
-                        this._router.navigate(['/quiz']);
+                        this._router.navigate([`/quiz/${result.data.id}`]);
                     }, 1000);
                 }
             });

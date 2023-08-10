@@ -1,1 +1,37 @@
-<p>raport works!</p>
+<app-layout-quiz>
+    <h3 class="text-xl font-semibold text-shadow mb-5">
+        Report
+    </h3>
+
+    <div class="flex flex-col gap-2 mb-10 text-center border-b border-solid border-t-0 border-x-0 pb-3">
+        <p class="text-gray-50 text-base mb-0">
+            Score Anda :
+        </p>
+        <p class="text-gray-50 text-4xl font-semibold">
+            {{ Score }} <i class="pi pi-circle-fill {{ Status }}"></i>
+        </p>
+    </div>
+
+    <div class="flex flex-col gap-4 mb-10">
+        <div *ngFor="let item of Result; let i = index"
+            class="flex flex-col gap-2 border-b border-dashed border-t-0 border-x-0 border-gray-500 pb-3">
+            <p class="text-base">
+                {{ i + 1 }}) {{ item.quiz.title }}
+            </p>
+
+            <p class="text-base text-gray-100">
+                Score : {{ item.score }}
+            </p>
+
+            <p class="text-xs text-gray-200">
+                Quiz Pada : {{ item.quiz.created_at | date: 'dd MMM yyyy HH:mm' }}
+            </p>
+        </div>
+    </div>
+
+    <div class="flex justify-center">
+        <button (click)="back()" class="p-1 px-3 border-2 border-white rounded-xl bg-transparent text-white">
+            Kembali
+        </button>
+    </div>
+</app-layout-quiz>

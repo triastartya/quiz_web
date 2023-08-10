@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { QuizModel } from 'src/app/model/quiz.model';
 import { QuizService } from 'src/app/services/quiz.service';
@@ -11,8 +12,10 @@ import { QuizService } from 'src/app/services/quiz.service';
 export class QuizComponent implements OnInit {
 
     constructor(
+        private _router: Router,
         public _quizService: QuizService,
         private _messageService: MessageService,
+        private _activatedRoute: ActivatedRoute,
     ) { }
 
     data: QuizModel[] = [];
@@ -20,6 +23,10 @@ export class QuizComponent implements OnInit {
     current_soal: number = 0;
 
     ngOnInit(): void {
+        this.getAllQuiz();
+    }
+
+    getAllQuiz(): void {
         this._quizService.onGetAllQuiz().subscribe((result) => {
             this.data = result.data
             for (const idx_jenis_soal in this.data) {
@@ -78,11 +85,20 @@ export class QuizComponent implements OnInit {
     }
 
     handleJawabanQuiz(): void {
-        this._quizService.onPostSave(this.data)
+        const payload = {
+            id_child: this._activatedRoute.snapshot.params['id'],
+            data: this.data,
+        }
+
+        this._quizService.onPostSave(payload)
             .subscribe((result) => {
                 if (result.status) {
                     this._messageService.clear();
                     this._messageService.add({ severity: 'success', summary: 'Success', detail: 'Data Berhasil Disimpan' });
+
+                    setTimeout(() => {
+                        this._router.navigateByUrl(`raport/${result.data.id}`);
+                    }, 1000);
                 }
             })
     }
