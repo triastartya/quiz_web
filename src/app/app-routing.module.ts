@@ -21,7 +21,7 @@ const routes: Routes = [
         path: 'datadiri', component: DataDiriComponent,
     },
     {
-        path: 'quiz', component: QuizComponent,
+        path: 'quiz/:id', component: QuizComponent,
     },
     {
         path: 'beranda', component: BerandaComponent, canActivate: [AuthGuard]

@@ -194,9 +194,8 @@ export class DataDiriComponent implements OnInit {
 
         this._dataDiriService.onPostdataDiri(data).subscribe(result => {
             alert(result.status)
-
+            this._router.navigate(['/quiz', result.data.id]);
         })
-        // this._router.navigate(['/quiz']);
     }
 
     get id_ibu(): AbstractControl { return this.Form.get('id_ibu') as AbstractControl; }
