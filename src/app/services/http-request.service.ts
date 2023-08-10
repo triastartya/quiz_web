@@ -59,6 +59,7 @@ export class HttpRequestService {
     }
 
     putRequest(url: string, payload: any): Observable<any> {
+
         this.ToggleLoading.next(true);
 
         return this._httpClient.put<any>(url, payload)

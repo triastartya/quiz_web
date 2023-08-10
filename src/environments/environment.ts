@@ -4,7 +4,7 @@
 
 export const environment = {
     production: false,
-    api: 'https://sigembul-mbkm-udinus.com/public/api',
+    api: 'https://quizsigembul-mbkm-udinus.com/public/api',
     report: 'https://sigembul-mbkm-udinus.com/public',
 };
 

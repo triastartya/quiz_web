@@ -11,6 +11,7 @@ import { AuthGuard } from './helper/auth.guard';
 import { FristScreenComponent } from './pages/frist-screen/frist-screen.component';
 import { DataDiriComponent } from './pages/data-diri/data-diri.component';
 import { QuizComponent } from './pages/quiz/quiz.component';
+import { QuizResultPageComponent } from './pages/quiz-result-page/quiz-result-page.component';
 
 const routes: Routes = [
     {
@@ -40,6 +41,9 @@ const routes: Routes = [
     {
         path: 'hasil-pemeriksaan', component: HasilPemeriksaanComponent, canActivate: [AuthGuard]
     },
+    {
+        path: 'quiz-result-page', component: QuizResultPageComponent
+    }
 ];
 
 @NgModule({

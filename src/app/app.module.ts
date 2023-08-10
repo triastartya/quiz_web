@@ -39,6 +39,7 @@ import { FristScreenComponent } from './pages/frist-screen/frist-screen.componen
 import { DataDiriComponent } from './pages/data-diri/data-diri.component';
 import { QuizComponent } from './pages/quiz/quiz.component';
 import { LayoutQuizComponent } from './components/layout/layout-quiz/layout-quiz.component';
+import { QuizResultPageComponent } from './pages/quiz-result-page/quiz-result-page.component';
 
 @NgModule({
     declarations: [
@@ -56,7 +57,8 @@ import { LayoutQuizComponent } from './components/layout/layout-quiz/layout-quiz
         FristScreenComponent,
         DataDiriComponent,
         QuizComponent,
-        LayoutQuizComponent
+        LayoutQuizComponent,
+        QuizResultPageComponent
     ],
     imports: [
         BrowserModule,
