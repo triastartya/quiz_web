@@ -1,5 +1,5 @@
 export const environment = {
     production: true,
-    api: 'https://sigembul-mbkm-udinus.com/public/api',
-    report: 'https://sigembul-mbkm-udinus.com/public',
+    api: 'https://quiz.sigembul-mbkm-udinus.com/public/api/',
+    report: 'https://quiz.sigembul-mbkm-udinus.com/public',
 };

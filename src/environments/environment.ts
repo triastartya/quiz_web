@@ -4,10 +4,9 @@
 
 export const environment = {
     production: false,
-    api: 'https://sigembul-mbkm-udinus.com/public/api',
-    report: 'https://sigembul-mbkm-udinus.com/public',
+    api: 'https://quiz.sigembul-mbkm-udinus.com/public/api/',
+    report: 'https://quiz.sigembul-mbkm-udinus.com/public',
 };
-
 /*
  * For easier debugging in development mode, you can import the following file
  * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
